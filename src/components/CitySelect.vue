@@ -97,7 +97,7 @@ $icon-box-width: 22px;
 
   &__list,
   &__toggler {
-    border-radius: 8px;
+    border-radius: $border-radius;
   }
 
   &__list-item {

@@ -12,7 +12,7 @@ interface Props {
   cityName: string
 }
 
-const { cityName } = defineProps<Props>()
+defineProps<Props>()
 
 const today = new Date()
 const dateString = today.toLocaleDateString('ru-RU', {

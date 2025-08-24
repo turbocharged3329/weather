@@ -20,7 +20,7 @@ const model = defineModel<number>({ default: NAV_MENU_ITEMS[0].id })
 <style scoped lang="scss">
 .w-navbar-nav-menu {
   color: rgba($color-primary, 0.4);
-  border-radius: 8px;
+  border-radius: $border-radius;
   background: rgba($color-surface-bg, 0.1);
   display: flex;
   width: fit-content;
