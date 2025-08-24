@@ -48,7 +48,6 @@ function onSelectCity(city: City) {
 </script>
 
 <style scoped lang="scss">
-$list-background-color: #e9e9f3;
 $list-offset: 12px;
 $icon-box-width: 22px;
 
@@ -92,7 +91,7 @@ $icon-box-width: 22px;
 
   &__toggler,
   &__list-item {
-    background: rgba($list-background-color, 0.1);
+    background-color: rgba($color-surface-bg, 0.1);
     padding: 0.625rem 1rem;
   }
 
@@ -105,7 +104,7 @@ $icon-box-width: 22px;
     cursor: pointer;
 
     &:hover {
-      background: rgba($list-background-color, 0.2);
+      background-color: rgba($color-surface-bg, 0.2);
     }
   }
 }

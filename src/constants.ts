@@ -10,3 +10,14 @@ export const CITIES_LIST = [
     title: 'Казань',
   },
 ]
+
+export const NAV_MENU_ITEMS = [
+  {
+    id: 1,
+    title: 'Главная',
+  },
+  {
+    id: 2,
+    title: 'Погода на неделю',
+  },
+]
