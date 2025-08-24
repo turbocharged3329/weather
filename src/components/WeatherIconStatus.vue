@@ -14,7 +14,7 @@ import {
 
 interface Props {
   weatherKey?: WeatherKey
-  windSpeed?: number
+  windSpeed?: number | null
 }
 
 const sunnyIcon = defineAsyncComponent(

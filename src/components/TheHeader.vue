@@ -10,7 +10,7 @@ import NavbarNavMenu from '@/components/NavbarNavMenu.vue'
 import CitySelect from '@/components/CitySelect.vue'
 
 defineEmits<{
-  'change-tab': [id: number]
+  'change-tab': [id: number | undefined]
 }>()
 </script>
 
