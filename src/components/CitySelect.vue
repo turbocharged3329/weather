@@ -64,6 +64,8 @@ onMounted(() => {
 <style scoped lang="scss">
 $list-offset: 12px;
 $icon-box-width: 22px;
+$list-item-bg: #2e73a5;
+$list-item-bg-hover: #4481ae;
 
 .w-city-select {
   position: relative;
@@ -76,6 +78,10 @@ $icon-box-width: 22px;
     gap: 0.625rem;
     color: $color-primary;
     width: 100%;
+
+    &:hover {
+      background-color: $list-item-bg-hover;
+    }
   }
 
   &__toggler-title {
@@ -101,11 +107,12 @@ $icon-box-width: 22px;
     top: calc(100% + $list-offset);
     right: 0;
     overflow: hidden;
+    z-index: 1;
   }
 
   &__toggler,
   &__list-item {
-    background-color: rgba($color-surface-bg, 0.1);
+    background-color: $list-item-bg;
     padding: 0.625rem 1rem;
   }
 
@@ -118,7 +125,7 @@ $icon-box-width: 22px;
     cursor: pointer;
 
     &:hover {
-      background-color: rgba($color-surface-bg, 0.2);
+      background-color: $list-item-bg-hover;
     }
   }
 }

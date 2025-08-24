@@ -3,9 +3,10 @@
     <h6 class="w-popular-city-weather-list-item__city-name w-text-p2">
       {{ data.city }}
     </h6>
-    <span class="w-popular-city-weather-list-item__weather-title">{{
-      weatherTitle
-    }}</span>
+    <span
+      class="w-popular-city-weather-list-item__weather-title w-text-sm w-weight-500"
+      >{{ weatherTitle }}</span
+    >
     <WeatherIconStatus
       v-if="weatherKey && windSpeed"
       class="w-popular-city-weather-list-item__weather-icon"
@@ -17,7 +18,8 @@
     <span class="w-popular-city-weather-list-item__temperature w-text-h3"
       >{{ data.temperature }}&deg;</span
     >
-    <span class="w-popular-city-weather-list-item__humidity"
+    <span
+      class="w-popular-city-weather-list-item__humidity w-text-sm w-weight-500"
       >Влажность: {{ data.humidity }}%</span
     >
   </div>
@@ -81,13 +83,6 @@ const { weatherKey, weatherTitle } = useWeather(weatherCode, windSpeed)
 
   &__humidity {
     margin-bottom: 1rem;
-  }
-
-  &__weather-title,
-  &__humidity {
-    font-size: 1.125rem;
-    line-height: 1.2;
-    font-weight: 500;
   }
 }
 </style>

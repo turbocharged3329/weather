@@ -28,6 +28,7 @@ const dateString = today.toLocaleDateString('ru-RU', {
   flex-direction: column;
   align-items: flex-start;
   gap: 0.75rem;
+  margin-bottom: 3rem;
 
   &__location-text {
     color: $color-primary;

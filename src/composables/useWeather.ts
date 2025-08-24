@@ -16,10 +16,10 @@ export const useWeather = (
   windSpeed: Ref<number | null>
 ) => {
   const weatherKey = computed<WeatherKey | null>(() => {
-    if (weatherCode.value) {
-      const weatherKeyValue = getWeatherKey(weatherCode.value)
+    if (weatherCode.value !== null) {
+      const weatherKeyValue = getWeatherKeyValue(weatherCode.value)
 
-      if (windSpeed.value && windSpeed.value > HIGH_WIND_SPEED) {
+      if (windSpeed.value !== null && windSpeed.value > HIGH_WIND_SPEED) {
         if (
           weatherKeyValue === SUNNY_WEATHER_KEY ||
           weatherKeyValue === CLOUDY_WEATHER_KEY
@@ -42,19 +42,17 @@ export const useWeather = (
     return null
   })
 
-  function getWeatherKey(weatherKey: number): WeatherKey | null {
-    if (weatherKey) {
-      if (weatherKey >= 80) {
-        return RAINY_WEATHER_KEY
-      }
+  function getWeatherKeyValue(weatherCode: number): WeatherKey | null {
+    if (weatherCode > 48) {
+      return RAINY_WEATHER_KEY
+    }
 
-      if (weatherKey === 0) {
-        return SUNNY_WEATHER_KEY
-      }
+    if (weatherCode === 0) {
+      return SUNNY_WEATHER_KEY
+    }
 
-      if (weatherKey >= 1 && weatherKey <= 48) {
-        return CLOUDY_WEATHER_KEY
-      }
+    if (weatherCode >= 1 && weatherCode <= 48) {
+      return CLOUDY_WEATHER_KEY
     }
 
     return null

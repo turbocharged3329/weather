@@ -24,6 +24,7 @@ const model = defineModel<number>({ default: NAV_MENU_ITEMS[0].id })
   background: rgba($color-surface-bg, 0.1);
   display: flex;
   width: fit-content;
+  overflow: hidden;
 
   &__link {
     padding: 0.625rem 1rem;
@@ -33,6 +34,11 @@ const model = defineModel<number>({ default: NAV_MENU_ITEMS[0].id })
     }
 
     &--active {
+      color: $color-primary;
+    }
+
+    &:hover {
+      background: rgba($color-surface-bg, 0.2);
       color: $color-primary;
     }
   }

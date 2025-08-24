@@ -1,7 +1,7 @@
 <template>
   <div class="w-selected-city-stats">
     <WeatherIconStatus
-      v-if="weatherKey && windSpeed"
+      v-if="weatherKey && windSpeed !== null"
       width="12.5vw"
       height="12.5vw"
       :weather-key="weatherKey"
@@ -47,6 +47,7 @@ const { weatherKey, weatherTitle } = useWeather(weatherCode, windSpeed)
   align-items: center;
   gap: 3vw;
   color: $color-primary;
+  width: 43.4vw;
 
   &__temperature {
     font-size: 6.25rem;

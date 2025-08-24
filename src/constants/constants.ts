@@ -7,17 +7,22 @@ export enum ResponseStatus {
   SUCCESS = 200,
 }
 
-export const SUNNY_WEATHER_KEY = 'sunny'
+export const SUNNY_WEATHER_KEY = 'clear'
 export const CLOUDY_WEATHER_KEY = 'cloudy'
 export const WINDY_WEATHER_KEY = 'windy'
 export const RAINY_WEATHER_KEY = 'rainy'
 
 export const WEATHER_TITLES = {
-  [SUNNY_WEATHER_KEY]: 'Солнечно',
+  [SUNNY_WEATHER_KEY]: 'Ясно',
   [CLOUDY_WEATHER_KEY]: 'Облачно',
   [WINDY_WEATHER_KEY]: 'Ветрено',
   [RAINY_WEATHER_KEY]: 'Дождливо',
 }
+
+export const MORNING_TIME_TITLE = 'Утро'
+export const DAYTIME_TIME_TITLE = 'День'
+export const EVENING_TIME_TITLE = 'Вечер'
+export const NIGHT_TIME_TITLE = 'Ночь'
 
 export const CITIES_LIST: Array<CitiesSelectListItem> = [
   {

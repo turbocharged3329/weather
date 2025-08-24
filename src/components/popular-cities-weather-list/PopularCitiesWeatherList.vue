@@ -1,10 +1,19 @@
 <template>
   <div class="w-popular-cities-weather-list">
-    <PopularCitiesWeatherListItem
-      v-for="city in citiesList"
-      :key="city.id"
-      :data="city"
-    />
+    <section class="w-popular-cities-weather-list__title">
+      <h4 class="w-text-h4">Погода в популярных городах</h4>
+      <div class="w-popular-cities-weather-list__hint" title="Подсказка">
+        <IconQuestion />
+      </div>
+    </section>
+
+    <section class="w-popular-cities-weather-list__wrapper">
+      <PopularCitiesWeatherListItem
+        v-for="city in citiesList"
+        :key="city.id"
+        :data="city"
+      />
+    </section>
   </div>
 </template>
 
@@ -18,6 +27,8 @@ import {
 import { onMounted } from 'vue'
 import type { PopularCityWeatherResponseData } from '@/interfaces/interfaces.js'
 import PopularCitiesWeatherListItem from '@/components/popular-cities-weather-list/PopularCitiesWeatherListItem.vue'
+import { v4 as uuidv4 } from 'uuid'
+import IconQuestion from '@/components/icons/IconQuestion.vue'
 
 const weatherData = ref<Array<PopularCityWeatherResponseData>>([])
 const citiesList = computed(() => {
@@ -30,7 +41,7 @@ const citiesList = computed(() => {
   return weatherData.value
     .map((data, i) => {
       return {
-        id: (String(data.latitude) + String(data.longitude)).replace('.', '-'),
+        id: uuidv4(),
         city: citiesNames[i] || null,
         temperature: Math.round(data.current.temperature_2m) || null,
         humidity: data.current.relative_humidity_2m || null,
@@ -59,6 +70,25 @@ onMounted(async () => {
 <style scoped lang="scss">
 .w-popular-cities-weather-list {
   display: flex;
-  gap: 2.6vw;
+  flex-direction: column;
+  align-items: flex-start;
+  color: $color-primary;
+
+  &__title {
+    margin-bottom: 2rem;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 1.1vw;
+  }
+
+  &__hint {
+    cursor: pointer;
+  }
+
+  &__wrapper {
+    display: flex;
+    gap: 2.6vw;
+  }
 }
 </style>

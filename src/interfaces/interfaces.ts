@@ -42,3 +42,20 @@ export interface SelectedCityTodayWeatherData {
   weatherCode: number
   windSpeed: number
 }
+
+export interface SelectedCityHourlyWeatherData {
+  humidity: number[]
+  temperature: number[]
+  weatherCode: number[]
+  windSpeed: number[]
+  time: string[]
+}
+
+export interface CityHourlyWeatherData {
+  id: string
+  humidity: number
+  temperature: number
+  weatherCode: number
+  windSpeed: number
+  time: string
+}
