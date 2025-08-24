@@ -24,8 +24,8 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { defineAsyncComponent } from 'vue'
-import { CITIES_LIST } from '@/constants.ts'
-import type { City } from '@/interfaces.ts'
+import { CITIES_LIST } from '@/constants/constants.js'
+import type { City } from '@/interfaces/interfaces.js'
 
 const IconChevronRight = defineAsyncComponent(
   () => import('@/components/icons/IconChevronRight.vue')

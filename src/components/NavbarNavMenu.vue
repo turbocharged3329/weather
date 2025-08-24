@@ -12,7 +12,7 @@
 </template>
 
 <script setup lang="ts">
-import { NAV_MENU_ITEMS } from '@/constants.ts'
+import { NAV_MENU_ITEMS } from '@/constants/constants.js'
 
 const model = defineModel<number>({ default: NAV_MENU_ITEMS[0].id })
 </script>
