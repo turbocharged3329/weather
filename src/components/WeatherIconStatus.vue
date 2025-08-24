@@ -1,5 +1,5 @@
 <template>
-  <component width="4.2vw" height="4.2vw" :is="iconComponent" />
+  <component :is="iconComponent" />
 </template>
 
 <script setup lang="ts">
@@ -40,6 +40,6 @@ const WEATHER_STATUS_COMPONENTS_MAP = {
 const props = defineProps<Props>()
 
 const iconComponent = computed(() => {
-  return WEATHER_STATUS_COMPONENTS_MAP[props.weatherKey] ?? null
+  return WEATHER_STATUS_COMPONENTS_MAP[props.weatherKey as WeatherKey] ?? null
 })
 </script>

@@ -1,21 +1,44 @@
 import type { CityCoordinates } from '../components/types/types.ts'
 
-export interface City {
+export interface CitiesSelectListItem {
   id: number
   title: string
-  name: string
+  coordinates: CityCoordinates
 }
 
 export interface PopularCitiesCoordinatesMap {
-  string: CityCoordinates
+  [cityName: string]: CityCoordinates
 }
 
-export interface PopularCityWeather {
+export interface CityWeatherResponseData {
   relative_humidity_2m: number
   temperature_2m: number
   weather_code: number
+  wind_speed_10m: number
 }
 
-export interface PopularCityWeatherData {
-  current: PopularCityWeather
+export interface PopularCityWeatherResponseData {
+  current: CityWeatherResponseData
+  latitude?: number
+  longitude?: number
+}
+
+export interface HourlyWeatherResponseData {
+  relative_humidity_2m: number[]
+  temperature_2m: number[]
+  weather_code: number[]
+  wind_speed_10m: number[]
+  time: string[]
+}
+
+export interface SelectedCityTodayWeatherResponseData
+  extends PopularCityWeatherResponseData {
+  hourly: HourlyWeatherResponseData
+}
+
+export interface SelectedCityTodayWeatherData {
+  humidity: number
+  temperature: number
+  weatherCode: number
+  windSpeed: number
 }

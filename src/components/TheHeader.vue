@@ -14,5 +14,6 @@ import CitySelect from '@/components/CitySelect.vue'
 .w-header {
   display: flex;
   justify-content: space-between;
+  margin-bottom: 3.5rem;
 }
 </style>

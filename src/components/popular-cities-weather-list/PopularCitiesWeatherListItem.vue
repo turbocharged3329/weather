@@ -7,9 +7,12 @@
       weatherTitle
     }}</span>
     <WeatherIconStatus
+      v-if="weatherKey && windSpeed"
       class="w-popular-city-weather-list-item__weather-icon"
+      width="4.2vw"
+      height="4.2vw"
       :weather-key="weatherKey"
-      :wind-speed="data.windSpeed"
+      :wind-speed="windSpeed"
     />
     <span class="w-popular-city-weather-list-item__temperature w-text-h3"
       >{{ data.temperature }}&deg;</span
@@ -21,13 +24,14 @@
 </template>
 
 <script setup lang="ts">
+import { toRefs } from 'vue'
 import WeatherIconStatus from '@/components/WeatherIconStatus.vue'
 import { useWeather } from '@/composables/useWeather.ts'
 
 interface Props {
   data: {
     id: string
-    city: string
+    city: string | null
     temperature: number | null
     humidity: number | null
     weatherCode: number | null
@@ -36,17 +40,15 @@ interface Props {
 }
 
 const props = defineProps<Props>()
+const { weatherCode, windSpeed } = toRefs(props.data)
 
-const { weatherKey, weatherTitle } = useWeather(
-  props.data.weatherCode && props.data.windSpeed
-)
+const { weatherKey, weatherTitle } = useWeather(weatherCode, windSpeed)
 </script>
 
 <style scoped lang="scss">
 .w-popular-city-weather-list-item {
   display: flex;
   flex-direction: column;
-  width: 100%;
   align-items: center;
   background: radial-gradient(
     163.87% 184.27% at -17.89% -22.86%,
@@ -56,6 +58,9 @@ const { weatherKey, weatherTitle } = useWeather(
   padding: 1.5625rem;
   border-radius: $border-radius;
   color: $color-primary;
+  width: 16.8vw;
+  flex-shrink: 0;
+  box-sizing: border-box;
 
   &__city-name {
     margin-bottom: 0.5rem;

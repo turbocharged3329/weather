@@ -1,3 +1,8 @@
+import type {
+  CitiesSelectListItem,
+  PopularCitiesCoordinatesMap,
+} from '@/interfaces/interfaces.ts'
+
 export enum ResponseStatus {
   SUCCESS = 200,
 }
@@ -14,16 +19,36 @@ export const WEATHER_TITLES = {
   [RAINY_WEATHER_KEY]: 'Дождливо',
 }
 
-export const CITIES_LIST = [
+export const CITIES_LIST: Array<CitiesSelectListItem> = [
   {
     id: 1,
-    name: 'Moscow',
-    title: 'Москва',
+    title: 'Казань',
+    coordinates: ['55.7887', '49.1221'],
   },
   {
     id: 2,
-    name: 'Kazan',
-    title: 'Казань',
+    title: 'Краснодар',
+    coordinates: ['45.0448', '38.9760'],
+  },
+  {
+    id: 3,
+    title: 'Уфа',
+    coordinates: ['54.7388', '55.9721'],
+  },
+  {
+    id: 4,
+    title: 'Новосибирск',
+    coordinates: ['55.0344', '82.9434'],
+  },
+  {
+    id: 5,
+    title: 'Красноярск',
+    coordinates: ['56.0267', '92.9077'],
+  },
+  {
+    id: 6,
+    title: 'Москва',
+    coordinates: ['55.7522', '37.6156'],
   },
 ]
 
@@ -38,7 +63,7 @@ export const NAV_MENU_ITEMS = [
   },
 ]
 
-export const POPULAR_CITIES_COORDINATES_MAP = {
+export const POPULAR_CITIES_COORDINATES_MAP: PopularCitiesCoordinatesMap = {
   Москва: ['55.7522', '37.6156'],
   Новосибирск: ['55.0344', '82.9434'],
   Красноярск: ['56.0267', '92.9077'],

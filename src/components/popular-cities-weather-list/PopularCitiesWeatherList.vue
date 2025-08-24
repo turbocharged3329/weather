@@ -16,10 +16,10 @@ import {
   ResponseStatus,
 } from '@/constants/constants.js'
 import { onMounted } from 'vue'
-import type { PopularCityWeatherData } from '@/interfaces/interfaces.js'
+import type { PopularCityWeatherResponseData } from '@/interfaces/interfaces.js'
 import PopularCitiesWeatherListItem from '@/components/popular-cities-weather-list/PopularCitiesWeatherListItem.vue'
 
-const weatherData = ref<Array<PopularCityWeatherData>>([])
+const weatherData = ref<Array<PopularCityWeatherResponseData>>([])
 const citiesList = computed(() => {
   if (!weatherData.value.length) {
     return []

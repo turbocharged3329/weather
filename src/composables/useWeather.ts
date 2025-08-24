@@ -1,3 +1,4 @@
+import type { Ref } from 'vue'
 import {
   RAINY_WEATHER_KEY,
   SUNNY_WEATHER_KEY,
@@ -10,27 +11,38 @@ import { computed } from 'vue'
 
 const HIGH_WIND_SPEED = 11
 
-export const useWeather = (weatherCode: number, windSpeed: number) => {
-  const weatherKey = computed(() => {
-    const weatherKeyValue = getWeatherKey(weatherCode)
+export const useWeather = (
+  weatherCode: Ref<number | null>,
+  windSpeed: Ref<number | null>
+) => {
+  const weatherKey = computed<WeatherKey | null>(() => {
+    if (weatherCode.value) {
+      const weatherKeyValue = getWeatherKey(weatherCode.value)
 
-    if (windSpeed && windSpeed > HIGH_WIND_SPEED) {
-      if (
-        weatherKeyValue === SUNNY_WEATHER_KEY ||
-        weatherKeyValue === CLOUDY_WEATHER_KEY
-      ) {
-        return WINDY_WEATHER_KEY
+      if (windSpeed.value && windSpeed.value > HIGH_WIND_SPEED) {
+        if (
+          weatherKeyValue === SUNNY_WEATHER_KEY ||
+          weatherKeyValue === CLOUDY_WEATHER_KEY
+        ) {
+          return WINDY_WEATHER_KEY
+        }
       }
+
+      return weatherKeyValue
     }
 
-    return weatherKeyValue
+    return null
   })
 
-  const weatherTitle = computed(
-    () => WEATHER_TITLES[weatherKey.value as WeatherKey]
-  )
+  const weatherTitle = computed(() => {
+    if (weatherKey.value) {
+      return WEATHER_TITLES[weatherKey.value as WeatherKey]
+    }
 
-  function getWeatherKey(weatherKey: number): string | null {
+    return null
+  })
+
+  function getWeatherKey(weatherKey: number): WeatherKey | null {
     if (weatherKey) {
       if (weatherKey >= 80) {
         return RAINY_WEATHER_KEY

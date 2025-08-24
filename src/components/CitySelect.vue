@@ -1,7 +1,7 @@
 <template>
-  <div class="w-city-select w-text-p4">
+  <div class="w-city-select w-text-p4" v-click-outside="closeSelect">
     <button class="w-city-select__toggler w-text-p4" @click="toggleSelect">
-      <span class="w-city-select__toggler-title">{{ currentCity.title }}</span>
+      <span class="w-city-select__toggler-title">{{ selectedCityName }}</span>
       <div class="w-city-select__toggler-icon">
         <IconChevronDown v-if="isOpen" />
         <IconChevronRight v-else />
@@ -22,10 +22,11 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
-import { defineAsyncComponent } from 'vue'
+import { onMounted, ref, defineAsyncComponent } from 'vue'
+import { storeToRefs } from 'pinia'
 import { CITIES_LIST } from '@/constants/constants.js'
-import type { City } from '@/interfaces/interfaces.js'
+import type { CitiesSelectListItem } from '@/interfaces/interfaces.js'
+import { useSelectedCityStore } from '@/components/stores/selected-city.store.ts'
 
 const IconChevronRight = defineAsyncComponent(
   () => import('@/components/icons/IconChevronRight.vue')
@@ -34,17 +35,30 @@ const IconChevronDown = defineAsyncComponent(
   () => import('@/components/icons/IconChevronDown.vue')
 )
 
+const selectedCityStore = useSelectedCityStore()
+const { selectedCityName, selectedCityCoordinates } =
+  storeToRefs(selectedCityStore)
+
 const isOpen = ref(false)
-const currentCity = ref<City>(CITIES_LIST[0])
 
 function toggleSelect() {
   isOpen.value = !isOpen.value
 }
 
-function onSelectCity(city: City) {
-  currentCity.value = city
-  toggleSelect()
+function closeSelect() {
+  isOpen.value = false
 }
+
+function onSelectCity(city: CitiesSelectListItem) {
+  selectedCityName.value = city.title
+  selectedCityCoordinates.value = city.coordinates
+  closeSelect()
+}
+
+onMounted(() => {
+  selectedCityName.value = CITIES_LIST[0]?.title || null
+  selectedCityCoordinates.value = CITIES_LIST[0]?.coordinates || null
+})
 </script>
 
 <style scoped lang="scss">

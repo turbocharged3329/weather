@@ -1,18 +1,18 @@
 <template>
   <section class="w-stats-heading">
     <h4 class="w-text-h4 w-stats-heading__location-text">
-      Погода в городе {{ cityName }}
+      Погода в городе {{ selectedCityName }}
     </h4>
     <p class="w-text-p1 w-stats-heading__date-text">{{ dateString }}</p>
   </section>
 </template>
 
 <script setup lang="ts">
-interface Props {
-  cityName: string
-}
+import { useSelectedCityStore } from '@/components/stores/selected-city.store.ts'
+import { storeToRefs } from 'pinia'
 
-defineProps<Props>()
+const selectedCityStore = useSelectedCityStore()
+const { selectedCityName } = storeToRefs(selectedCityStore)
 
 const today = new Date()
 const dateString = today.toLocaleDateString('ru-RU', {
