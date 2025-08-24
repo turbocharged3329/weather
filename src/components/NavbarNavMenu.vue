@@ -12,9 +12,14 @@
 </template>
 
 <script setup lang="ts">
-import { NAV_MENU_ITEMS } from '@/constants/constants.js'
+import { onMounted } from 'vue'
+import { MAIN_TAB_ID, NAV_MENU_ITEMS } from '@/constants/constants.js'
 
-const model = defineModel<number>({ default: NAV_MENU_ITEMS[0].id })
+const model = defineModel<number>()
+
+onMounted(() => {
+  model.value = MAIN_TAB_ID
+})
 </script>
 
 <style scoped lang="scss">

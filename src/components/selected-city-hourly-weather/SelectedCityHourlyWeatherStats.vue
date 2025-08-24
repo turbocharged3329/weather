@@ -16,7 +16,7 @@ import { useSelectedCityStore } from '@/components/stores/selected-city.store.ts
 import { storeToRefs } from 'pinia'
 import { v4 as uuidv4 } from 'uuid'
 import type { CityHourlyWeatherData } from '@/interfaces/interfaces.ts'
-import SelectedCityHourlyWeatherStatsRow from '@/components/SelectedCityHourlyWeatherStatsRow.vue'
+import SelectedCityHourlyWeatherStatsRow from '@/components/selected-city-hourly-weather/SelectedCityHourlyWeatherStatsRow.vue'
 
 const selectedCityStore = useSelectedCityStore()
 const { selectedCityHourlyWeather } = storeToRefs(selectedCityStore)

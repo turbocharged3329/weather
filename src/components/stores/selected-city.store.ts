@@ -4,6 +4,7 @@ import type { CityCoordinates } from '../types/types.ts'
 import type {
   SelectedCityHourlyWeatherData,
   SelectedCityTodayWeatherData,
+  SelectedCityWeeklyWeatherData,
 } from '../../interfaces/interfaces.ts'
 
 export const useSelectedCityStore = defineStore('selected-city', () => {
@@ -13,6 +14,9 @@ export const useSelectedCityStore = defineStore('selected-city', () => {
     null
   )
   const selectedCityHourlyWeather = ref<SelectedCityHourlyWeatherData | null>(
+    null
+  )
+  const selectedCityWeeklyWeather = ref<SelectedCityWeeklyWeatherData | null>(
     null
   )
 
@@ -28,6 +32,7 @@ export const useSelectedCityStore = defineStore('selected-city', () => {
     selectedCityCoordinates,
     selectedCityTodayWeather,
     selectedCityHourlyWeather,
+    selectedCityWeeklyWeather,
     windSpeed,
     weatherCode,
   }

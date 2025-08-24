@@ -1,6 +1,6 @@
 <template>
   <header class="w-header">
-    <NavbarNavMenu />
+    <NavbarNavMenu @update:model-value="$emit('change-tab', $event)" />
     <CitySelect />
   </header>
 </template>
@@ -8,6 +8,10 @@
 <script setup lang="ts">
 import NavbarNavMenu from '@/components/NavbarNavMenu.vue'
 import CitySelect from '@/components/CitySelect.vue'
+
+defineEmits<{
+  'change-tab': [id: number]
+}>()
 </script>
 
 <style scoped lang="scss">

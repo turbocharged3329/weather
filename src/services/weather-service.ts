@@ -3,8 +3,11 @@ import type {
   PopularCitiesCoordinatesMap,
   PopularCityWeatherResponseData,
   SelectedCityTodayWeatherResponseData,
+  SelectedCityWeeklyWeatherResponseData,
 } from '../interfaces/interfaces.ts'
 import type { CityCoordinates } from '../components/types/types.ts'
+
+const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone
 
 export class WeatherService {
   static getPopularCitiesWeather(citiesList: PopularCitiesCoordinatesMap) {
@@ -46,37 +49,31 @@ export class WeatherService {
           'relative_humidity_2m',
           'weather_code',
           'wind_speed_10m',
-        ],
+        ].join(','),
         hourly: [
           'temperature_2m',
           'relative_humidity_2m',
           'wind_speed_10m',
           'weather_code',
-        ],
+        ].join(','),
         forecast_days: 1,
+        timezone,
       },
     })
   }
 
   static getSelectedCityWeatherForecast(cityCoordinates: CityCoordinates) {
-    return http.get<Array<SelectedCityTodayWeatherResponseData>>('/forecast', {
+    return http.get<SelectedCityWeeklyWeatherResponseData>('/forecast', {
       params: {
         latitude: cityCoordinates[0],
         longitude: cityCoordinates[1],
-        current: [
-          'temperature_2m',
-          'relative_humidity_2m',
+        daily: [
           'weather_code',
-          'wind_speed_10m',
-        ],
-        daily: ['weather_code', 'temperature_2m_max', 'wind_speed_10m_max'],
-        hourly: [
-          'temperature_2m',
-          'relative_humidity_2m',
-          'wind_speed_10m',
-          'weather_code',
-        ],
+          'temperature_2m_max',
+          'wind_speed_10m_max',
+        ].join(','),
         forecast_days: 7,
+        timezone,
       },
     })
   }

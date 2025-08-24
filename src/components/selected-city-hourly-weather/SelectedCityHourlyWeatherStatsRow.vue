@@ -15,7 +15,7 @@
 
     <section class="w-selected-city-hourly-stats-row__weather-section">
       <WeatherIconStatus
-        v-if="weatherKey && windSpeed !== null"
+        v-if="weatherKey"
         :weather-key="weatherKey"
         :wind-speed="windSpeed"
       />

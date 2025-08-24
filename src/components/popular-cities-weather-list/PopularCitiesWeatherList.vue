@@ -7,7 +7,7 @@
       </div>
     </section>
 
-    <section class="w-popular-cities-weather-list__wrapper">
+    <section v-if="!isLoading" class="w-popular-cities-weather-list__wrapper">
       <PopularCitiesWeatherListItem
         v-for="city in citiesList"
         :key="city.id"
@@ -31,6 +31,8 @@ import { v4 as uuidv4 } from 'uuid'
 import IconQuestion from '@/components/icons/IconQuestion.vue'
 
 const weatherData = ref<Array<PopularCityWeatherResponseData>>([])
+const isLoading = ref<boolean>(false)
+
 const citiesList = computed(() => {
   if (!weatherData.value.length) {
     return []
@@ -54,6 +56,8 @@ const citiesList = computed(() => {
 
 onMounted(async () => {
   try {
+    isLoading.value = true
+
     const { data, status } = await WeatherService.getPopularCitiesWeather(
       POPULAR_CITIES_COORDINATES_MAP
     )
@@ -63,6 +67,8 @@ onMounted(async () => {
     }
   } catch (error) {
     console.error(error)
+  } finally {
+    isLoading.value = false
   }
 })
 </script>
@@ -83,7 +89,7 @@ onMounted(async () => {
   }
 
   &__hint {
-    cursor: pointer;
+    cursor: help;
   }
 
   &__wrapper {

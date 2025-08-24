@@ -1,7 +1,7 @@
 <template>
   <div class="w-selected-city-stats">
     <WeatherIconStatus
-      v-if="weatherKey && windSpeed !== null"
+      v-if="weatherKey"
       width="12.5vw"
       height="12.5vw"
       :weather-key="weatherKey"

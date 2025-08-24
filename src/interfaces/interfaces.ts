@@ -59,3 +59,27 @@ export interface CityHourlyWeatherData {
   windSpeed: number
   time: string
 }
+
+export interface SelectedCityWeeklyWeatherResponseData {
+  daily: {
+    temperature_2m_max: number[]
+    time: string[]
+    weather_code: number[]
+    wind_speed_10m_max: number[]
+  }
+}
+
+export interface SelectedCityWeeklyWeatherData {
+  temperature: number[]
+  weatherCode: number[]
+  windSpeed: number[]
+  day: string[]
+}
+
+export interface CityWeekdayWeatherData {
+  id: string
+  temperature: number
+  weatherCode: number
+  windSpeed: number
+  day: string
+}

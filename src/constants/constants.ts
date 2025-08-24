@@ -57,16 +57,18 @@ export const CITIES_LIST: Array<CitiesSelectListItem> = [
   },
 ]
 
+export const MAIN_TAB_ID = 1
+
 export const NAV_MENU_ITEMS = [
   {
-    id: 1,
+    id: MAIN_TAB_ID,
     title: 'Главная',
   },
   {
     id: 2,
     title: 'Погода на неделю',
   },
-]
+] as const
 
 export const POPULAR_CITIES_COORDINATES_MAP: PopularCitiesCoordinatesMap = {
   Москва: ['55.7522', '37.6156'],
