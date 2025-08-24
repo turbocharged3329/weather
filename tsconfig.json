@@ -1,5 +1,22 @@
 {
-  "extends": "@vue/tsconfig/tsconfig.json",
-  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.vue"],
-  "exclude": ["node_modules"]
+  "extends": [
+    "@tsconfig/node24/tsconfig.json",
+    "@vue/tsconfig/tsconfig.json"
+  ],
+  "compilerOptions": {
+    "types": ["node"],
+      "paths": {
+        "@/*": ["./src"]
+      }
+
+  },
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.d.ts",
+    "src/**/*.vue",
+    "srs/*.ts",
+    "vite-env.d.ts",
+    "vite.config.ts",
+    "env.d.ts"
+  ]
 }
