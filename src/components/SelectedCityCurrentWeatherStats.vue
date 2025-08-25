@@ -17,8 +17,8 @@
       v-if="selectedCityTodayWeather"
     >
       <span>{{ weatherTitle }}</span>
-      <span>Влажность: {{ selectedCityTodayWeather.humidity }}%</span>
-      <span>Ветер: {{ windSpeed }} м/c</span>
+      <span>Влажность: {{ selectedCityTodayWeather.humidity }}&nbsp;%</span>
+      <span>Ветер: {{ windSpeed }}&nbsp;м/c</span>
     </section>
   </div>
 </template>
