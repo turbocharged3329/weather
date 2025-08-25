@@ -44,11 +44,11 @@ const citiesList = computed(() => {
     .map((data, i) => {
       return {
         id: uuidv4(),
-        city: citiesNames[i] || null,
-        temperature: Math.round(data.current.temperature_2m) || null,
-        humidity: data.current.relative_humidity_2m || null,
-        weatherCode: data.current.weather_code || null,
-        windSpeed: data.current.wind_speed_10m || null,
+        city: citiesNames[i] || '',
+        temperature: Math.round(data.current.temperature_2m),
+        humidity: data.current.relative_humidity_2m,
+        weatherCode: data.current.weather_code,
+        windSpeed: data.current.wind_speed_10m,
       }
     })
     .filter(city => city.city !== null)

@@ -8,7 +8,7 @@
       >{{ weatherTitle }}</span
     >
     <WeatherIconStatus
-      v-if="weatherKey && windSpeed"
+      v-if="weatherKey"
       class="w-popular-city-weather-list-item__weather-icon"
       width="4.2vw"
       height="4.2vw"
@@ -33,11 +33,11 @@ import { useWeather } from '@/composables/useWeather.ts'
 interface Props {
   data: {
     id: string
-    city: string | null
-    temperature: number | null
-    humidity: number | null
-    weatherCode: number | null
-    windSpeed: number | null
+    city: string
+    temperature: number
+    humidity: number
+    weatherCode: number
+    windSpeed: number
   }
 }
 
