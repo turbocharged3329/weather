@@ -19,13 +19,13 @@
 
 <script setup lang="ts">
 import { ref, computed } from 'vue'
-import { WeatherService } from '@/services/weather-service.js'
+import { WeatherService } from '@/services/weather-service.ts'
 import {
   POPULAR_CITIES_COORDINATES_MAP,
   ResponseStatus,
-} from '@/constants/constants.js'
+} from '@/constants/constants.ts'
 import { onMounted } from 'vue'
-import type { PopularCityWeatherResponseData } from '@/interfaces/interfaces.js'
+import type { PopularCityWeatherResponseData } from '@/interfaces/interfaces.ts'
 import PopularCitiesWeatherListItem from '@/components/popular-cities-weather-list/PopularCitiesWeatherListItem.vue'
 import { v4 as uuidv4 } from 'uuid'
 import IconQuestion from '@/components/icons/IconQuestion.vue'

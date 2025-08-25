@@ -15,7 +15,7 @@
     "src/**/*.d.ts",
     "src/**/*.store.ts",
     "src/**/*.vue",
-    "srс/*.ts",
+    "src/*.ts",
     "vite-env.d.ts",
     "vite.config.ts",
     "env.d.ts"

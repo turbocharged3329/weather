@@ -13,7 +13,7 @@
 
 <script setup lang="ts">
 import { onMounted } from 'vue'
-import { MAIN_TAB_ID, NAV_MENU_ITEMS } from '@/constants/constants.js'
+import { MAIN_TAB_ID, NAV_MENU_ITEMS } from '@/constants/constants.ts'
 
 const model = defineModel<number>()
 

@@ -24,8 +24,8 @@
 <script setup lang="ts">
 import { onMounted, ref, defineAsyncComponent } from 'vue'
 import { storeToRefs } from 'pinia'
-import { CITIES_LIST } from '@/constants/constants.js'
-import type { CitiesSelectListItem } from '@/interfaces/interfaces.js'
+import { CITIES_LIST } from '@/constants/constants.ts'
+import type { CitiesSelectListItem } from '@/interfaces/interfaces.ts'
 import { useSelectedCityStore } from '@/components/stores/selected-city.store.ts'
 
 const IconChevronRight = defineAsyncComponent(
