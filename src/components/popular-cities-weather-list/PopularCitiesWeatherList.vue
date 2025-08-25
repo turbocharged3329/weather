@@ -51,7 +51,7 @@ const citiesList = computed(() => {
         windSpeed: data.current.wind_speed_10m || null,
       }
     })
-    .filter(city => city !== null)
+    .filter(city => city.city !== null)
 })
 
 onMounted(async () => {

@@ -30,6 +30,8 @@ const isLoading = ref<boolean>(false)
 
 async function setSelectedCityTodayWeather() {
   try {
+    isLoading.value = true
+
     if (!selectedCityCoordinates.value) {
       return
     }
